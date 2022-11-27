@@ -5,7 +5,6 @@ public class Time {
         this.pais = pais;
         this.cod = cod;
     }
-
     public String getPais(){
         return pais; 
     }
@@ -16,5 +15,4 @@ public class Time {
         String msg = "Pais:" + pais + "Codigo:" + cod;
         return msg;
     }
-    
 }
