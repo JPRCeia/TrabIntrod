@@ -30,6 +30,15 @@ public class Partida {
             return -1;
         }
     }
+    public int empate(){
+        if(getPontT1() == getPontT2())return getCod1();
+        if(getPontT2() == getPontT1())return getCod2();
+            else{
+                return -1;
+            }
+
+
+    }
     // to.string normal  com a data e o score da partida
     public String toString(){
         return "Partida da data:" + data + " Resultado = " + score;
@@ -46,11 +55,5 @@ public class Partida {
     }
     public int getPontT2(){
         return this.pontT2;
-    }
-    public void setPontT1(int pontT1) {
-        this.pontT1 = pontT1;
-    }
-    public void setPontT2(int pontT2) {
-        this.pontT2 = pontT2;
     }
 }

@@ -1,9 +1,7 @@
 public class ListaPartida {
-    private Partida[] lista;
+    private Partida[] lista = new Partida[36];
     // mesma coisa do lista time
-    public ListaPartida(){
-        lista = new Partida[36];
-    }
+
     public void incluiPartida(Partida partida){
         for(int i = 0; i < lista.length;i++){
             if(lista[i] == null){
@@ -17,5 +15,9 @@ public class ListaPartida {
     }
     public Partida exluiPartida(int i){
         return lista[i] = null;
+    }
+    // getter lista pra usar na pontuacao
+    public Partida[] getListaPartida(){
+        return lista;
     }
 }
