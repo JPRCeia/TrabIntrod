@@ -1,5 +1,5 @@
 public class Pontuacao {
-    private int[][] tabela = new int[6][10];
+    private double[][] tabela = new double[6][10];
     private Partida partida;
 
     
@@ -9,11 +9,14 @@ public class Pontuacao {
     }
     public void alterarVitorias(Time time, ListaPartida listaPartida){
         int aux = 0;
-        partida = listaPartida.getListaPartida()[time.getCod()];
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
-            if(time.getCod() == partida.vencedor()){
-                aux++;
+            partida = listaPartida.getListaPartida()[i];
+            if(partida != null){
+                if(time.getCod() == partida.vencedor()){
+                    aux++;
+                }
             }
+
         }
         tabela[time.getCod()][3] = aux;
     }
@@ -92,38 +95,38 @@ public class Pontuacao {
         if(getNumVitoria(time) == 0){
             tabela[time.getCod()][9] = 0;
         }else{
-            tabela[time.getCod()][9] = (getJogos(time) / getNumVitoria(time)) * 100;
+            tabela[time.getCod()][9] = (getNumVitoria(time) / getJogos(time)) * 100;
         }
     }
     // getters basico
-    public int getCod(Time time){
+    public double getCod(Time time){
         return tabela[time.getCod()][0];
     }
-    public int getPontos(Time time){
+    public double getPontos(Time time){
         return tabela[time.getCod()][1];
     }
-    public int getJogos(Time time){
+    public double getJogos(Time time){
         return tabela[time.getCod()][2];
     }
-    public int getNumVitoria(Time time){
+    public double getNumVitoria(Time time){
         return tabela[time.getCod()][3];
     }
-    public int getNumEmpates(Time time){
+    public double getNumEmpates(Time time){
         return tabela[time.getCod()][4];
     }
-    public int getNumDerrotas(Time time){
+    public double getNumDerrotas(Time time){
         return tabela[time.getCod()][5];
     }
-    public int getGolsFeitos(Time time){
+    public double getGolsFeitos(Time time){
         return tabela[time.getCod()][6];
     }
-    public int getGolsSofridos(Time time){
+    public double getGolsSofridos(Time time){
         return tabela[time.getCod()][7];
     }
-    public int getSaldoGols(Time time){
+    public double getSaldoGols(Time time){
         return tabela[time.getCod()][8];
     }
-    public int getAproveitamento(Time time){
+    public double getAproveitamento(Time time){
         return tabela[time.getCod()][9];
     }
 }
