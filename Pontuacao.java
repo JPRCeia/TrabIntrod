@@ -1,9 +1,9 @@
 public class Pontuacao {
     private int[][] tabela = new int[6][10];
     private Time time;
-    private Partida partida;
+    //aqui o bixo pega, tenho que termina ainda, basicamente eu to pegando partida por partida e colocando as info delas na matrix
 
-
+    // aqui poga o vencedor de x partida e soma a vitoria na matrix 
     public void alterarVitorias(Partida partida){
         int codTime = partida.vencedor();
         if (codTime != -1){
@@ -15,6 +15,7 @@ public class Pontuacao {
             }
          }   
      }
+     // mesma coisa que accima mas com o perdedor
      public void alteraDerrotas(Partida partida){
         int codTime = partida.perdedor();
         if (codTime != -1){
@@ -25,6 +26,7 @@ public class Pontuacao {
             }
         }
     }
+    // mesma coisa so que com empate
     public void alterarEmpate(Partida partida){
         int codTime = partida.vencedor();
         if(codTime == -1){
@@ -35,6 +37,7 @@ public class Pontuacao {
             }
         }
     }
+    // getters basico
     public int getNumVitoria(int i){
         return tabela[i][3];
     }
@@ -44,6 +47,7 @@ public class Pontuacao {
     public int getNumEmpates(int i){
         return tabela[i][4];
     }
+    // muda a pontuacao conforme as vitorias,empates,derrotas
     public void alterarPontos(){
         int codTime = time.getCod();
         for(int i=0; i<tabela.length; i++){
@@ -52,6 +56,7 @@ public class Pontuacao {
             }
         }
     }
+    // conta as partidas que participo
     public void alteraJogos(Partida partida) {
         int codTime1 = partida.getCod1();
         int codTime2 = partida.getCod2();

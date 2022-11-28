@@ -1,7 +1,7 @@
 public class Time {
     private String pais;
     private int cod;
-    
+    // Classe time setter,getters e to.string
     Time(String pais, int cod){
         this.pais = pais;
         this.cod = cod;

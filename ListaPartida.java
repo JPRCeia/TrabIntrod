@@ -1,6 +1,6 @@
 public class ListaPartida {
     private Partida[] lista;
-
+    // mesma coisa do lista time
     public ListaPartida(){
         lista = new Partida[36];
     }
