@@ -30,14 +30,8 @@ public class Partida {
             return -1;
         }
     }
-    public int empate(){
-        if(getPontT1() == getPontT2())return getCod1();
-        if(getPontT2() == getPontT1())return getCod2();
-            else{
-                return -1;
-            }
-
-
+    public boolean empate(){
+        return getPontT1() == getPontT2();
     }
     // to.string normal  com a data e o score da partida
     public String toString(){

@@ -32,10 +32,12 @@ public class Pontuacao {
     }
     public void alterarEmpates(Time time, ListaPartida listaPartida){
         int aux = 0;
-        partida = listaPartida.getListaPartida()[time.getCod()];
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
-            if(time.getCod() == partida.empate()){  
-                aux++;    
+            partida = listaPartida.getListaPartida()[i];
+            if(partida != null){
+                if(partida.empate()){
+                    aux++;
+                }
             }
         }
         tabela[time.getCod()][4]=aux;
