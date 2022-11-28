@@ -22,10 +22,12 @@ public class Pontuacao {
     }
     public void alterarDerrotas(Time time, ListaPartida listaPartida){
         int aux = 0;
-        partida = listaPartida.getListaPartida()[time.getCod()];
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
-            if(time.getCod() == partida.vencedor()){
-                aux++;
+            partida = listaPartida.getListaPartida()[i];
+            if(partida!= null){
+                if(time.getCod() == partida.vencedor()){
+                    aux++;
+                }
             }
         }
         tabela[time.getCod()][5]= aux;
@@ -73,7 +75,6 @@ public class Pontuacao {
             }
         }
         tabela[time.getCod()][6] = aux;
-
     }
     public void golsSofridos(Time time, ListaPartida listaPartida){
         int aux = 0;

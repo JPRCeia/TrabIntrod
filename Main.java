@@ -34,11 +34,14 @@ public class Main {
         pontuacao.golsSofridos(time2, listaPartida);
         pontuacao.golsFeitos(time2, listaPartida);
         pontuacao.aproveitamento(time2);
-        System.out.println(pontuacao.getJogos(time2));
-        System.out.println(pontuacao.getAproveitamento(time2));
-        System.out.println(pontuacao.getGolsFeitos(time2));
-        System.out.println(pontuacao.getGolsSofridos(time2));
-        System.out.println(pontuacao.getPontos(time2));
+        System.out.println("jogos: "+ pontuacao.getJogos(time2));
+        System.out.println("aproveitamento: "+ pontuacao.getAproveitamento(time2));
+        System.out.println("gols feitos: "+ pontuacao.getGolsFeitos(time2));
+        System.out.println("gols sofridos: "+ pontuacao.getGolsSofridos(time2));
+        System.out.println("pontos: "+ pontuacao.getPontos(time2));
+        System.out.println("empates: "+ pontuacao.getNumEmpates(time2));
+        System.out.println("vitorias: "+ pontuacao.getNumVitoria(time2));
+        System.out.println("derrotas: "+ pontuacao.getNumDerrotas(time2));
         
 
     }
