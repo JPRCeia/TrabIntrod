@@ -1,21 +1,21 @@
 public class ListaPartida {
     private Partida[] lista;
-    private int index = 0;
-    private Partida partida;
+
     public ListaPartida(){
         lista = new Partida[36];
     }
-    public boolean incluiTime(Partida partida){
-        if(index == lista.length) return false;
-        lista[index] = partida;
-        index++;
-        return true;
+    public void incluiPartida(Partida partida){
+        for(int i = 0; i < lista.length;i++){
+            if(lista[i] == null){
+                lista[i] = partida;
+            }
+        }  
     }
-    public Partida buscaTime(int index ){
-        if(index < 0 || index > lista.length)return null;
-        return lista[index];
+    public Partida buscaPartida(int i ){
+        if(i < 0 || i > lista.length)return null;
+        return lista[i];
     }
-    public Partida exluiTime(int index){
-        return lista[index] = null;
+    public Partida exluiPartida(int i){
+        return lista[i] = null;
     }
 }

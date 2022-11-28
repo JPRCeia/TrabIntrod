@@ -1,26 +1,21 @@
 public class ListaTime {
     private Time[] lista;
-    private int index=0;
-    private Time time;
+    
     public ListaTime(){
         lista = new Time[6];
     }
-    public boolean incluiTime(Time time){
-        if(index == lista.length) return false;
-        lista[index] = time;
-        index++;
-        return true;
+    public void incluiTime(Time time){
+        for(int i = 0; i < lista.length; i++){
+            if(lista[i] == null){
+                lista[i] =  time;
+            }
+        }
     }
-    public Time buscaTime(int index ){
-        if(index < 0 || index > lista.length)return null;
-        return lista[index];
+    public Time buscaTime(int i ){
+        if(i < 0 || i > lista.length)return null;
+        return lista[i];
     }
-    public Time exluiTime(int index){
-        return lista[index] = null;
+    public Time exluiTime(int i){
+        return lista[i] = null;
     }
-
-
-
-
-
 }
