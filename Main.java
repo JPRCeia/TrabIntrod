@@ -27,10 +27,13 @@ public class Main {
         pontuacao.alterarDerrotas(time1, listaPartida);
         pontuacao.alterarEmpates(time2, listaPartida);
         pontuacao.alterarEmpates(time1, listaPartida);
-        pontuacao.aproveitamento(time2, listaPartida);
-        pontuacao.aproveitamento(time1, listaPartida);
+        pontuacao.aproveitamento(time2);
+        pontuacao.aproveitamento(time1);
         pontuacao.alterarPontos(time2, listaPartida);
         pontuacao.alterarPontos(time2, listaPartida);
+        pontuacao.golsSofridos(time2, listaPartida);
+        pontuacao.golsFeitos(time2, listaPartida);
+        pontuacao.aproveitamento(time2);
         System.out.println(pontuacao.getJogos(time2));
         System.out.println(pontuacao.getAproveitamento(time2));
         System.out.println(pontuacao.getGolsFeitos(time2));

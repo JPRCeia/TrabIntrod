@@ -10,7 +10,6 @@ public class Pontuacao {
     public void alterarVitorias(Time time, ListaPartida listaPartida){
         int aux = 0;
         partida = listaPartida.getListaPartida()[time.getCod()];
-
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
             if(time.getCod() == partida.vencedor()){
                 aux++;
@@ -21,7 +20,6 @@ public class Pontuacao {
     public void alterarDerrotas(Time time, ListaPartida listaPartida){
         int aux = 0;
         partida = listaPartida.getListaPartida()[time.getCod()];
-
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
             if(time.getCod() == partida.vencedor()){
                 aux++;
@@ -32,7 +30,6 @@ public class Pontuacao {
     public void alterarEmpates(Time time, ListaPartida listaPartida){
         int aux = 0;
         partida = listaPartida.getListaPartida()[time.getCod()];
-
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
             if(time.getCod() == partida.empate()){  
                 aux++;    
@@ -42,10 +39,12 @@ public class Pontuacao {
     }
     public void alterarJogos(Time time, ListaPartida listaPartida){
         int aux = 0;
-        partida = listaPartida.getListaPartida()[time.getCod()];
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
-            if(time.getCod() == partida.getCod1() || time.getCod() == partida.getCod2()){
-                aux++;
+            partida = listaPartida.getListaPartida()[i];
+            if(partida != null){
+                if(time.getCod() == partida.getCod1() || time.getCod() == partida.getCod2()){
+                    aux++;
+                }
             }
         }
         tabela[time.getCod()][2] = aux;
@@ -57,34 +56,39 @@ public class Pontuacao {
 
     public void golsFeitos(Time time, ListaPartida listaPartida){
         int aux = 0;
-        partida = listaPartida.getListaPartida()[time.getCod()];
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
-            if(time.getCod() == partida.getCod1()){
-                 aux = aux + partida.getPontT1();
+            partida = listaPartida.getListaPartida()[i];
+            if (partida != null) {
+                if(time.getCod() == partida.getCod1()){
+                    aux = aux + partida.getPontT1();
+                }
+                 else if(time.getCod() == partida.getCod2()){
+                    aux = aux + partida.getPontT2();
+                }
             }
-            if(time.getCod() == partida.getCod2()){
-                aux = aux + partida.getPontT2();
-            }
-            tabela[time.getCod()][6] = aux;
         }
+        tabela[time.getCod()][6] = aux;
+
     }
     public void golsSofridos(Time time, ListaPartida listaPartida){
         int aux = 0;
-        partida = listaPartida.getListaPartida()[time.getCod()];
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
-            if(time.getCod() == partida.getCod1()){
-                 aux = aux + partida.getPontT2();
+            partida = listaPartida.getListaPartida()[i];
+            if(partida != null){
+                if(time.getCod() == partida.getCod1()){
+                    aux = aux + partida.getPontT2();
+                }
+                if(time.getCod() == partida.getCod2()){
+                    aux = aux + partida.getPontT1();
+                }
             }
-            if(time.getCod() == partida.getCod2()){
-                aux = aux + partida.getPontT1();
-            }
-            tabela[time.getCod()][7] = aux;
         }
+        tabela[time.getCod()][7] = aux;
     }
     public void saldoDeGols(Time time){
         tabela[time.getCod()][8] = getGolsFeitos(time) - getGolsSofridos(time);
     }
-    public void aproveitamento(Time time, ListaPartida listaPartida){
+    public void aproveitamento(Time time){
         if(getNumVitoria(time) == 0){
             tabela[time.getCod()][9] = 0;
         }else{
