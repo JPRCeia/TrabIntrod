@@ -8,7 +8,8 @@ public class ListaTime {
     public void incluiTime(Time time){
         for(int i = 0; i < lista.length; i++){
             if(lista[i] == null){
-                lista[i] =  time;
+                lista[i] = new Time(time.getPais(), time.getCod()) ;
+                break;
             }
         }
     }

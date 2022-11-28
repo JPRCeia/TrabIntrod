@@ -6,6 +6,7 @@ public class ListaPartida {
         for(int i = 0; i < lista.length;i++){
             if(lista[i] == null){
                 lista[i] = partida;
+                break;
             }
         }  
     }
@@ -20,4 +21,5 @@ public class ListaPartida {
     public Partida[] getListaPartida(){
         return lista;
     }
+
 }
