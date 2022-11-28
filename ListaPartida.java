@@ -15,7 +15,7 @@ public class ListaPartida {
         if(i < 0 || i > lista.length)return null;
         return lista[i];
     }
-    public Partida exluiPartida(int i){
+    public Partida excluiPartida(int i){
         return lista[i] = null;
     }
     // getter lista pra usar na pontuacao

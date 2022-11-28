@@ -1,6 +1,5 @@
 public class Pontuacao {
     private int[][] tabela = new int[6][10];
-    private ListaPartida listaPartida;
     private Partida partida;
 
     
@@ -8,16 +7,16 @@ public class Pontuacao {
     public void cod (Time time){
         tabela[time.getCod()][0] = time.getCod();
     }
-    public void alterarVitorias(Time time){
+    public void alterarVitorias(Time time, ListaPartida listaPartida){
         int aux = 0;
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
-            if(  time.getCod() == partida.vencedor()){
+            if(time.getCod() == partida.vencedor()){
                 aux++;
             }
         }
         tabela[time.getCod()][3] = aux;
     }
-    public void alterarDerrotas(Time time){
+    public void alterarDerrotas(Time time, ListaPartida listaPartida){
         int aux = 0;
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
             if(time.getCod() == partida.vencedor()){
@@ -26,7 +25,7 @@ public class Pontuacao {
         }
         tabela[time.getCod()][5]= aux;
     }
-    public void alterarEmpates(Time time){
+    public void alterarEmpates(Time time, ListaPartida listaPartida){
         int aux = 0;
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
             if(time.getCod() == partida.empate()){  
@@ -35,8 +34,7 @@ public class Pontuacao {
         }
         tabela[time.getCod()][4]=aux;
     }
-    public void alterarJogos(Time time){
-    
+    public void alterarJogos(Time time, ListaPartida listaPartida){
         int aux = 0;
         partida = listaPartida.getListaPartida()[time.getCod()];
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
@@ -46,10 +44,12 @@ public class Pontuacao {
         }
         tabela[time.getCod()][2] = aux;
     }
-    public void alterarPontos(Time time){  
-        tabela[time.getCod()][1] = (getNumEmpates(time) * 1) + ( getNumVitoria(time) * 3);      
+
+    public void alterarPontos(Time time, ListaPartida listaPartida){
+        tabela[time.getCod()][1] = (getNumEmpates(time)) + (getNumVitoria(time) * 3);
     }
-    public void golsFeitos(Time time){
+
+    public void golsFeitos(Time time, ListaPartida listaPartida){
         int aux = 0;
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
             if(time.getCod() == partida.getCod1()){
@@ -61,7 +61,7 @@ public class Pontuacao {
             tabela[time.getCod()][6] = aux;
         }
     }
-    public void golsSofridos(Time time){
+    public void golsSofridos(Time time, ListaPartida listaPartida){
         int aux = 0;
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
             if(time.getCod() == partida.getCod1()){
@@ -76,8 +76,12 @@ public class Pontuacao {
     public void saldoDeGols(Time time){
         tabela[time.getCod()][8] = getGolsFeitos(time) - getGolsSofridos(time);
     }
-    public void aproveitamento(Time time){
-        tabela[time.getCod()][9] = (getJogos(time) / getNumVitoria(time)) * 100;
+    public void aproveitamento(Time time, ListaPartida listaPartida){
+        if(getNumVitoria(time) == 0){
+            tabela[time.getCod()][9] = 0;
+        }else{
+            tabela[time.getCod()][9] = (getJogos(time) / getNumVitoria(time)) * 100;
+        }
     }
     // getters basico
     public int getCod(Time time){
