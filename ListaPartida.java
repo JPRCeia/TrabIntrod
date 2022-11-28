@@ -1,6 +1,7 @@
 public class ListaPartida {
     private Partida[] lista = new Partida[36];
     // mesma coisa do lista time
+   
 
     public void incluiPartida(Partida partida){
         for(int i = 0; i < lista.length;i++){

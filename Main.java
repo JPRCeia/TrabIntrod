@@ -18,7 +18,7 @@ public class Main {
         System.out.println(listaPartida.buscaPartida(0));
         System.out.println(listaPartida.buscaPartida(1));
         System.out.println(listaPartida.buscaPartida(2));
-        /*Pontuacao pontuacao = new Pontuacao();
+        Pontuacao pontuacao = new Pontuacao();
         pontuacao.alterarJogos(time2);
         pontuacao.alterarJogos(time1);
         pontuacao.alterarVitorias(time2);
@@ -36,7 +36,7 @@ public class Main {
         System.out.println(pontuacao.getGolsFeitos(time2));
         System.out.println(pontuacao.getGolsSofridos(time2));
         System.out.println(pontuacao.getPontos(time2));
-        */
+        
 
     }
 
