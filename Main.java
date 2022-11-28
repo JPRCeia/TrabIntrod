@@ -5,6 +5,13 @@ public class Main {
 
         Partida partida1 = new Partida ("22/8",time1,time2,2,0);
         System.out.println(partida1);
+       
+        ListaTime listaTime = new ListaTime();
+        listaTime.incluiTime(time1);
+       
+
+        System.out.println(listaTime.buscaTime(0));
+        
         
     }
 

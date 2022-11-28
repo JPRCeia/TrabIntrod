@@ -1,6 +1,7 @@
 public class Time {
     private String pais;
     private int cod;
+    
     Time(String pais, int cod){
         this.pais = pais;
         this.cod = cod;
