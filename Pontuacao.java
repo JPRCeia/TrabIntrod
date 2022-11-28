@@ -9,6 +9,8 @@ public class Pontuacao {
     }
     public void alterarVitorias(Time time, ListaPartida listaPartida){
         int aux = 0;
+        partida = listaPartida.getListaPartida()[time.getCod()];
+
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
             if(time.getCod() == partida.vencedor()){
                 aux++;
@@ -18,6 +20,8 @@ public class Pontuacao {
     }
     public void alterarDerrotas(Time time, ListaPartida listaPartida){
         int aux = 0;
+        partida = listaPartida.getListaPartida()[time.getCod()];
+
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
             if(time.getCod() == partida.vencedor()){
                 aux++;
@@ -27,6 +31,8 @@ public class Pontuacao {
     }
     public void alterarEmpates(Time time, ListaPartida listaPartida){
         int aux = 0;
+        partida = listaPartida.getListaPartida()[time.getCod()];
+
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
             if(time.getCod() == partida.empate()){  
                 aux++;    
@@ -51,6 +57,7 @@ public class Pontuacao {
 
     public void golsFeitos(Time time, ListaPartida listaPartida){
         int aux = 0;
+        partida = listaPartida.getListaPartida()[time.getCod()];
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
             if(time.getCod() == partida.getCod1()){
                  aux = aux + partida.getPontT1();
@@ -63,6 +70,7 @@ public class Pontuacao {
     }
     public void golsSofridos(Time time, ListaPartida listaPartida){
         int aux = 0;
+        partida = listaPartida.getListaPartida()[time.getCod()];
         for(int i = 0; i < listaPartida.getListaPartida().length; i++){
             if(time.getCod() == partida.getCod1()){
                  aux = aux + partida.getPontT2();
